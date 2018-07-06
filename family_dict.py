@@ -13,7 +13,10 @@ my_family = {
 # define function to print out family report
 # using nested dictionaries in a comprehension
 def family_set(family):
-    return (f'{info["name"]} is my {relative} and is {info["age"]} years old' for relative, info in family.items())
+    return (
+        f'{info["name"]} is my {relative} and is {info["age"]} years old' 
+        for relative, info in family.items()
+        )
 
 def print_family(family):
     for person in family:
