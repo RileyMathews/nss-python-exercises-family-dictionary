@@ -11,11 +11,18 @@ my_family = {
 }
 
 # define function to print out family report
-# using nested dictionaries in a loop
-def family_report(family):
-    for relative, info in family.items():
-        print(f'{info["name"]} is my {relative} and is {info["age"]} years old')
+# using nested dictionaries in a comprehension
+def family_set(family):
+    return (f'{info["name"]} is my {relative} and is {info["age"]} years old' for relative, info in family.items())
 
+def print_family(family):
+    for person in family:
+        print(person)
 
 # call function and pass it the dictionary of family information
-family_report(my_family)
+# function returns a set of strings to be printed
+family = family_set(my_family)
+
+# pass that set to a function which will print
+# out each item in the set
+print_family(family)
